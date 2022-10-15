@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/analyzer")
@@ -20,10 +22,10 @@ public class AnalyzerController {
 
     @PostMapping
     public ResponseEntity<String> saveData(@RequestBody MessageDto dto) throws JsonProcessingException {
-        if (dto.getStatus() != null) {
+        if (dto.getStatus() != null && dto.getContent() != null) {
             service.sendMessage(dto, NamesForQueue.ROUTER_QUEUE_NAME);
             return ResponseEntity.ok().body("Сообщение принято и обработано.");
         }
-        return ResponseEntity.badRequest().body("Неверный формат данных");
+        return ResponseEntity.badRequest().body("Неверный формат данных.");
     }
 }
