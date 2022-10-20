@@ -22,6 +22,6 @@ public class RabbitSendServiceImpl implements RabbitSendService {
     public void sendMessage(MessageDto dto, String queue) throws JsonProcessingException {
         String dtoToString = mapper.writeValueAsString(dto);
         template.convertAndSend(queue, dtoToString);
-        log.info("Сообщение " + dtoToString + " отправлено в очередь " + queue);
+        log.info("Message " + dtoToString + " sent to the queue " + queue);
     }
 }
