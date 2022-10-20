@@ -3,8 +3,6 @@ FROM openjdk:11
 # Set default timezone
 ENV TZ=Europe/Moscow
 
-
-
 ARG JAR_FILE=target/*.jar
 ADD ${JAR_FILE} /opt/app.jar
 
