@@ -1,6 +1,6 @@
 package liga.message.messageanalyzer.core.configuration;
 
-import liga.message.messageanalyzer.core.model.NamesForQueue;
+import liga.message.messageanalyzer.core.dto.NamesForQueueDto;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitConfiguration {
 
-    private static final String HOST = "rabbitmq";
+    private static final String HOST = "localhost";
 
     @Bean
     public ConnectionFactory connectionFactory() {
@@ -22,7 +22,7 @@ public class RabbitConfiguration {
 
     @Bean
     public Queue queue() {
-        return new Queue(NamesForQueue.ROUTER_QUEUE_NAME);
+        return new Queue(NamesForQueueDto.ROUTER_QUEUE_NAME);
     }
 
     @Bean

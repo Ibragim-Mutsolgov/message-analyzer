@@ -1,8 +1,8 @@
 package liga.message.messageanalyzer.core.controller;
-
+/*
 import com.fasterxml.jackson.core.JsonProcessingException;
-import liga.message.messageanalyzer.core.model.MessageDto;
-import liga.message.messageanalyzer.core.model.Status;
+import liga.message.messageanalyzer.core.dto.RabbitMessageDto;
+import liga.message.messageanalyzer.core.dto.Type;
 import liga.message.messageanalyzer.core.service.RabbitSendService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,13 +21,13 @@ class AnalyzerControllerTest {
     @Mock
     private RabbitSendService service;
 
-    private MessageDto dto;
+    private RabbitMessageDto dto;
 
     @BeforeEach
     void setUp() {
         controller = new AnalyzerController(service);
-        dto = new MessageDto(
-                Status.alert,
+        dto = new RabbitMessageDto(
+                Type.alert,
                 "Content"
         );
     }
@@ -48,7 +48,7 @@ class AnalyzerControllerTest {
     void saveDataWithNullParameter() throws JsonProcessingException {
         // given
         ResponseEntity<String> result;
-        dto = new MessageDto(
+        dto = new RabbitMessageDto(
                 null,
                 null
         );
@@ -60,3 +60,4 @@ class AnalyzerControllerTest {
         assertEquals(result.getBody(), "Неверный формат данных.");
     }
 }
+ */
